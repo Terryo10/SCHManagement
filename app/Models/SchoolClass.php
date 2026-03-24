@@ -4,24 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class User extends Model implements HasMedia
+class SchoolClass extends Model
 {
     use HasFactory;
-    use InteractsWithMedia;
-    use HasRoles;
+    protected $table = 'school_classes';
 
-    protected $fillable = ['school_id', 'name', 'email', 'password', 'avatar', 'is_active', 'two_factor_secret'];
-
-    protected $casts = [
-        'is_active' => 'boolean',
-    ];
+    protected $fillable = ['school_id', 'name', 'order_index'];
 
     public function school(): BelongsTo
     {
