@@ -36,23 +36,20 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
-            ->pages([Pages\Dashboard::class])
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
+            ->pages([\App\Filament\Admin\Pages\Dashboard::class])
+            ->widgets([])
             ->navigationGroups([
-                NavigationGroup::make('School Setup')->icon('heroicon-o-building-office-2'),
-                NavigationGroup::make('Academics')->icon('heroicon-o-academic-cap'),
-                NavigationGroup::make('Students')->icon('heroicon-o-users'),
-                NavigationGroup::make('Staff')->icon('heroicon-o-briefcase'),
-                NavigationGroup::make('Attendance')->icon('heroicon-o-calendar-days'),
-                NavigationGroup::make('Examinations')->icon('heroicon-o-clipboard-document-list'),
-                NavigationGroup::make('Finance')->icon('heroicon-o-banknotes'),
-                NavigationGroup::make('Library')->icon('heroicon-o-book-open'),
-                NavigationGroup::make('Transport')->icon('heroicon-o-truck'),
-                NavigationGroup::make('Communication')->icon('heroicon-o-megaphone'),
-                NavigationGroup::make('System')->icon('heroicon-o-cog-6-tooth'),
+                NavigationGroup::make('School Setup'),
+                NavigationGroup::make('Academics'),
+                NavigationGroup::make('Students'),
+                NavigationGroup::make('Staff'),
+                NavigationGroup::make('Attendance'),
+                NavigationGroup::make('Examinations'),
+                NavigationGroup::make('Finance'),
+                NavigationGroup::make('Library'),
+                NavigationGroup::make('Transport'),
+                NavigationGroup::make('Communication'),
+                NavigationGroup::make('System'),
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
